@@ -1,0 +1,44 @@
+{
+	"name": "rust-tweeter",
+	"version": "0.1.0",
+	"private": true,
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev --parallel",
+		"lint": "turbo run lint",
+		"clean": "turbo run clean",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"bump": "standard-version --skip.tag",
+		"release": "git flow release start",
+		"pubpush": "git flow release finish"
+	},
+	"devDependencies": {
+		"@w/eslint-config-custom": "*",
+		"commitizen": "^4.2.5",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^7.32.0",
+		"prettier": "^2.7.1",
+		"prettier-plugin-tailwindcss": "^0.1.11",
+		"standard-version": "^9.5.0",
+		"turbo": "latest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/aerox0/rust-tweeter.git"
+	},
+	"author": "aerox0",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/aerox0/rust-tweeter/issues"
+	},
+	"homepage": "https://github.com/aerox0/rust-tweeter#readme",
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
+}
