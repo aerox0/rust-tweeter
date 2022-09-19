@@ -1,6 +1,7 @@
 use std::net::SocketAddr;
 
 pub mod graphql;
+pub mod schema;
 pub mod utils;
 
 use crate::graphql::graphql_routes;

@@ -5,6 +5,9 @@
 	"scripts": {
 		"dev": "cargo watch -x run",
 		"build": "cargo build --release",
-		"start": "cargo run --release"
+		"start": "cargo run --release",
+		"migrate:up": "diesel migration run",
+		"migrate:down": "diesel migration redo",
+		"migrate:revert": "diesel migration revert"
 	}
 }
