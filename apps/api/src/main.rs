@@ -3,15 +3,17 @@ use std::net::SocketAddr;
 pub mod controllers;
 pub mod graphql;
 pub mod modules;
+pub mod routes;
 pub mod schema;
 pub mod utils;
 
-use crate::graphql::graphql_routes;
 use axum::{routing::get, Router};
 use dotenvy::dotenv;
 use tracing_subscriber::{
     self, prelude::__tracing_subscriber_SubscriberExt, util::SubscriberInitExt,
 };
+
+use crate::routes::graphql::graphql_routes;
 
 #[tokio::main]
 async fn main() {
