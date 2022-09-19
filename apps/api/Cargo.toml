@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 axum = { version = "0.5.16", features = ["headers"] }
-dotenvy = "0.15.3"
+dotenvy = "0.15.4"
 headers = "0.3.8"
 jsonwebtoken = "8.1.1"
 serde = { version = "1.0.144", features = ["derive"] }
