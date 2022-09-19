@@ -1,32 +1,32 @@
 use async_graphql::{InputObject, SimpleObject};
 use chrono::NaiveDateTime;
 use diesel::{Insertable, Queryable};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
 use crate::schema::users;
 
 #[derive(Queryable, Serialize, SimpleObject)]
 #[diesel(table_name = users)]
 pub struct UserModel {
-    id: i32,
-    image_url: Option<String>,
-    name: String,
-    email: Option<String>,
+    pub id: i32,
+    pub image_url: Option<String>,
+    pub name: String,
+    pub email: Option<String>,
     #[graphql(skip)]
     #[serde(skip)]
-    password: String,
+    pub password: String,
     #[graphql(skip)]
     #[serde(skip)]
-    verified: Option<NaiveDateTime>,
-    created_at: NaiveDateTime,
-    updated_at: NaiveDateTime,
+    pub verified: Option<NaiveDateTime>,
+    pub created_at: NaiveDateTime,
+    pub updated_at: NaiveDateTime,
 }
 
-#[derive(Insertable, InputObject)]
+#[derive(Insertable, InputObject, Deserialize)]
 #[diesel(table_name = users)]
 pub struct UserInput {
-    image_url: Option<String>,
-    name: String,
-    password: String,
-    verified: Option<NaiveDateTime>,
+    pub image_url: Option<String>,
+    pub name: String,
+    pub password: String,
+    pub verified: Option<NaiveDateTime>,
 }

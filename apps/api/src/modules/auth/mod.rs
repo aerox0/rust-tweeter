@@ -11,20 +11,25 @@ pub mod jwt_service;
 
 #[derive(Deserialize)]
 pub struct AuthInput {
-    access_token: String,
-    token_type: String,
+    pub name: String,
+    pub password: String,
 }
 
 #[derive(Serialize)]
 pub struct AuthOutput {
-    access_token: String,
-    refresh_token: String,
+    pub access_token: String,
+    pub refresh_token: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Deserialize)]
+pub struct TokenModel {
+    pub token: String,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
 pub struct Claims {
-    sub: String,
-    exp: usize,
+    pub sub: String,
+    pub exp: usize,
 }
 
 #[async_trait]

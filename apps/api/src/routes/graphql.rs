@@ -7,6 +7,6 @@ pub async fn graphql_routes() -> Router {
     let schema = Schema::new(QueryRoot, EmptyMutation, EmptySubscription);
 
     Router::new()
-        .route("/graphql", get(graphql_playground).post(graphql_handler))
+        .route("/", get(graphql_playground).post(graphql_handler))
         .layer(Extension(schema))
 }

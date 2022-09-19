@@ -1,2 +1,2 @@
+###
 GET http://localhost:4000/health
-Authorization: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZXhwIjoxNjYzNjk5NTIzfQ.Ir7NU7FinWqzTIm9H7vLd1iRk-zFp5-pivkOsKY5boGQXFlcXTsrU-XPVVSEIMCuLJkrKzyLLKYU8e67RLGshw
