@@ -7,9 +7,9 @@ use jsonwebtoken::{
 
 use super::Claims;
 
-pub struct Jwt;
+pub struct JwtService;
 
-impl Jwt {
+impl JwtService {
     pub fn validate(token: String, token_type: &str) -> Option<Claims> {
         let now = Utc::now().timestamp().try_into().unwrap_or(0);
 

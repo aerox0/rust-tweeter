@@ -1,5 +1,6 @@
 use std::net::SocketAddr;
 
+pub mod controllers;
 pub mod graphql;
 pub mod modules;
 pub mod schema;
