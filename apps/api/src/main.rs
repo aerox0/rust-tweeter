@@ -1,14 +1,20 @@
 use std::net::SocketAddr;
 
+pub mod controllers;
+pub mod errors;
 pub mod graphql;
+pub mod modules;
+pub mod routes;
+pub mod schema;
 pub mod utils;
 
-use crate::graphql::graphql_routes;
 use axum::{routing::get, Router};
 use dotenvy::dotenv;
 use tracing_subscriber::{
     self, prelude::__tracing_subscriber_SubscriberExt, util::SubscriberInitExt,
 };
+
+use crate::routes::app_routes;
 
 #[tokio::main]
 async fn main() {
@@ -22,7 +28,7 @@ async fn main() {
         .init();
 
     let app = Router::new()
-        .merge(graphql_routes().await)
+        .merge(app_routes().await)
         .route("/health", get(|| async { "ok" }));
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 4000));
