@@ -15,10 +15,8 @@ const Layout: React.FC<LayoutProps> = ({ title, children }) => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<div className="flex min-h-screen flex-col items-center justify-center bg-white py-2">
-				<main className="mx-auto w-full max-w-6xl pt-16 pb-8 sm:pt-24 lg:px-8">
-					{children}
-				</main>
+			<div className="flex min-h-screen flex-col items-center justify-start bg-white py-2">
+				<main className="mx-auto w-full max-w-6xl pb-8 lg:px-8">{children}</main>
 			</div>
 		</>
 	)
