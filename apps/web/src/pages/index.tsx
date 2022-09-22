@@ -1,10 +1,16 @@
+import type { NextPage } from 'next'
 import { Post } from '../components/components/Post'
 import { TweetPost } from '../components/components/TweetPost'
-import Layout from '../components/layouts/Index'
+import { FollowWidget } from '../components/layouts/FollowWidget'
+import { Layout } from '../components/layouts/Index'
 import { InfoSidebar } from '../components/layouts/InfoSidebar'
 import { NavSidebar } from '../components/layouts/NavSidebar'
+import { SearchWidget } from '../components/layouts/SearchWidget'
+import { TrendsForYouWidget } from '../components/layouts/TrendsForYouWidget'
 
-const Home = () => {
+interface HomeProps {}
+
+const Home: NextPage<HomeProps> = () => {
 	return (
 		<Layout title="Home">
 			<div className="flex flex-row justify-between">
@@ -34,7 +40,11 @@ const Home = () => {
 					</div>
 				</div>
 
-				<InfoSidebar />
+				<InfoSidebar>
+					<SearchWidget />
+					<TrendsForYouWidget />
+					<FollowWidget />
+				</InfoSidebar>
 			</div>
 		</Layout>
 	)

@@ -20,7 +20,7 @@ const RoundedInput: React.FC<RoundedInputProps> = ({
 			)}
 			<input
 				type="text"
-				className="rounded-full border border-transparent bg-gray-100 py-2 pl-12 pr-4 outline-none focus:border-blue-300"
+				className="w-full rounded-full border border-transparent bg-gray-100 py-2 pl-12 pr-4 outline-none focus:border-blue-300"
 				placeholder={placeholder}
 			/>
 		</div>
