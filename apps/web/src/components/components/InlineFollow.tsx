@@ -1,5 +1,5 @@
 import { Avatar } from './Avatar'
-import { Button } from './Button'
+import { Button } from './forms/Button'
 
 interface InlineFollowProps {
 	name: string

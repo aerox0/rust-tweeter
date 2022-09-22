@@ -1,6 +1,6 @@
-import { Button } from '../components/Button'
 import { PhotoIcon } from '@heroicons/react/24/outline'
 import { Avatar } from '../components/Avatar'
+import { Button } from './forms/Button'
 
 interface TweetPostProps {
 	className?: string
