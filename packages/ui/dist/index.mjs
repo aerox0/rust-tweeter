@@ -2,26 +2,39 @@
 import { jsx } from "react/jsx-runtime";
 var NavSidebar = ({ children, className = "" }) => {
   return /* @__PURE__ */ jsx("aside", {
-    className: `grow-[1] basis-0 py-2 md:px-3 ${className}`,
+    className: `grow-[2] basis-0 py-2 md:px-3 ${className}`,
     children
   });
 };
 
-// src/components/Avatar.tsx
+// src/layouts/InfoSidebar.tsx
 import { jsx as jsx2 } from "react/jsx-runtime";
-var Avatar = ({}) => {
-  return /* @__PURE__ */ jsx2("div", {
-    className: "h-12 w-12 rounded-full bg-black"
+var InfoSidebar = ({ children }) => {
+  return /* @__PURE__ */ jsx2("aside", {
+    className: " relative hidden grow-[1] basis-0 border-l-[1px] border-blue-50 py-2 px-3 lg:block",
+    children: /* @__PURE__ */ jsx2("div", {
+      className: "sticky top-0 left-0 right-0",
+      children
+    })
   });
 };
 
-// src/layouts/Post.tsx
-import { jsx as jsx3, jsxs } from "react/jsx-runtime";
+// src/components/Avatar.tsx
+import { jsx as jsx3 } from "react/jsx-runtime";
+var Avatar = ({ size = "3rem" }) => {
+  return /* @__PURE__ */ jsx3("div", {
+    style: { height: size, width: size },
+    className: `rounded-full bg-black`
+  });
+};
+
+// src/components/Post.tsx
+import { jsx as jsx4, jsxs } from "react/jsx-runtime";
 var Post = ({ name, username, hours_ago, children }) => {
   return /* @__PURE__ */ jsxs("div", {
     className: "flex flex-row gap-4",
     children: [
-      /* @__PURE__ */ jsx3(Avatar, {}),
+      /* @__PURE__ */ jsx4(Avatar, {}),
       /* @__PURE__ */ jsxs("div", {
         className: "flex flex-col",
         children: [
@@ -44,7 +57,7 @@ var Post = ({ name, username, hours_ago, children }) => {
               })
             ]
           }),
-          /* @__PURE__ */ jsx3("div", {
+          /* @__PURE__ */ jsx4("div", {
             className: "mt-1",
             children
           })
@@ -55,43 +68,17 @@ var Post = ({ name, username, hours_ago, children }) => {
 };
 
 // src/components/Button.tsx
-import { jsx as jsx4 } from "react/jsx-runtime";
-var Button = ({ children }) => {
-  return /* @__PURE__ */ jsx4("button", {
-    className: "rounded-full bg-blue-500 px-3 py-1 font-semibold text-white hover:bg-blue-400",
+import { jsx as jsx5 } from "react/jsx-runtime";
+var Button = ({ children, className = "" }) => {
+  return /* @__PURE__ */ jsx5("button", {
+    className: `rounded-full bg-blue-500 px-3 py-1 font-semibold text-white hover:bg-blue-400 ${className}`,
     children
   });
 };
 
-// ../../node_modules/@heroicons/react/24/outline/esm/PhotoIcon.js
-import * as React from "react";
-function PhotoIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /* @__PURE__ */ React.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /* @__PURE__ */ React.createElement("title", {
-    id: titleId
-  }, title) : null, /* @__PURE__ */ React.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-  }));
-}
-var ForwardRef = React.forwardRef(PhotoIcon);
-var PhotoIcon_default = ForwardRef;
-
-// src/layouts/TweetPost.tsx
-import { jsx as jsx5, jsxs as jsxs2 } from "react/jsx-runtime";
+// src/components/TweetPost.tsx
+import { PhotoIcon } from "@heroicons/react/24/outline";
+import { jsx as jsx6, jsxs as jsxs2 } from "react/jsx-runtime";
 var TweetPost = ({ className = "" }) => {
   return /* @__PURE__ */ jsxs2("div", {
     className,
@@ -99,10 +86,10 @@ var TweetPost = ({ className = "" }) => {
       /* @__PURE__ */ jsxs2("div", {
         className: "flex flex-row gap-5",
         children: [
-          /* @__PURE__ */ jsx5(Avatar, {}),
-          /* @__PURE__ */ jsx5("div", {
+          /* @__PURE__ */ jsx6(Avatar, {}),
+          /* @__PURE__ */ jsx6("div", {
             className: "grow-[1] basis-0",
-            children: /* @__PURE__ */ jsx5("textarea", {
+            children: /* @__PURE__ */ jsx6("textarea", {
               className: "mt-2 w-full text-lg outline-none",
               placeholder: "What's happening?"
             })
@@ -112,10 +99,10 @@ var TweetPost = ({ className = "" }) => {
       /* @__PURE__ */ jsxs2("div", {
         className: "mt-2 ml-auto flex max-w-[calc(100%_-_4.25rem)] flex-row items-center justify-between",
         children: [
-          /* @__PURE__ */ jsx5(PhotoIcon_default, {
+          /* @__PURE__ */ jsx6(PhotoIcon, {
             className: "h-6 w-6"
           }),
-          /* @__PURE__ */ jsx5(Button, {
+          /* @__PURE__ */ jsx6(Button, {
             children: "Tweet"
           })
         ]
@@ -125,31 +112,127 @@ var TweetPost = ({ className = "" }) => {
 };
 
 // src/components/Logo.tsx
-import { jsx as jsx6 } from "react/jsx-runtime";
+import { jsx as jsx7 } from "react/jsx-runtime";
 var Logo = ({}) => {
-  return /* @__PURE__ */ jsx6("div", {
+  return /* @__PURE__ */ jsx7("div", {
     className: "p-2",
-    children: /* @__PURE__ */ jsx6("div", {
+    children: /* @__PURE__ */ jsx7("div", {
       className: "h-12 w-12 rounded-full bg-black"
     })
   });
 };
 
 // src/components/NavItem.tsx
-import { jsx as jsx7 } from "react/jsx-runtime";
+import { jsx as jsx8 } from "react/jsx-runtime";
 var NavItem = ({ href = "#", children }) => {
-  return /* @__PURE__ */ jsx7("a", {
+  return /* @__PURE__ */ jsx8("a", {
     href,
     className: "flex flex-row items-center gap-4 rounded-full py-2 px-3 text-lg font-semibold hover:bg-gray-200",
     children
   });
 };
+
+// src/components/TagInfo.tsx
+import { jsx as jsx9, jsxs as jsxs3 } from "react/jsx-runtime";
+var TagInfo = ({ name, count }) => {
+  return /* @__PURE__ */ jsxs3("a", {
+    href: "#",
+    className: "flex flex-col px-3 py-2 hover:bg-gray-200",
+    children: [
+      /* @__PURE__ */ jsx9("h4", {
+        className: "text-[15px] font-semibold",
+        children: name
+      }),
+      /* @__PURE__ */ jsxs3("span", {
+        className: "mt-1 text-xs text-[13px] text-gray-500",
+        children: [
+          count,
+          " Tweets"
+        ]
+      })
+    ]
+  });
+};
+
+// src/components/RoundedBlock.tsx
+import { jsx as jsx10, jsxs as jsxs4 } from "react/jsx-runtime";
+var RoundedBlock = ({ title, children }) => {
+  return /* @__PURE__ */ jsxs4("div", {
+    className: "mb-4 rounded-2xl bg-gray-100 py-3",
+    children: [
+      /* @__PURE__ */ jsx10("h3", {
+        className: "mb-2 px-3 text-lg font-bold",
+        children: title
+      }),
+      children
+    ]
+  });
+};
+
+// src/components/InlineFollow.tsx
+import { jsx as jsx11, jsxs as jsxs5 } from "react/jsx-runtime";
+var InlineFollow = ({ name, username }) => {
+  return /* @__PURE__ */ jsxs5("a", {
+    href: "#",
+    className: "flex flex-row items-center gap-2 px-3 py-2 hover:bg-gray-200",
+    children: [
+      /* @__PURE__ */ jsx11(Avatar, {
+        size: "2.7rem"
+      }),
+      /* @__PURE__ */ jsxs5("div", {
+        className: "flex grow-[1] basis-0 flex-col",
+        children: [
+          /* @__PURE__ */ jsx11("h5", {
+            className: "text-[15px] font-bold leading-none",
+            children: name
+          }),
+          /* @__PURE__ */ jsx11("span", {
+            className: "text-sm text-[13px] text-gray-500",
+            children: username
+          })
+        ]
+      }),
+      /* @__PURE__ */ jsx11(Button, {
+        className: "text-sm",
+        children: "Follow"
+      })
+    ]
+  });
+};
+
+// src/components/forms/RoundedInput.tsx
+import { jsx as jsx12, jsxs as jsxs6 } from "react/jsx-runtime";
+var RoundedInput = ({
+  Icon,
+  className = "",
+  placeholder = ""
+}) => {
+  var _a;
+  return /* @__PURE__ */ jsxs6("div", {
+    className: `relative flex flex-row ${className}`,
+    children: [
+      Icon && /* @__PURE__ */ jsx12(Icon, {
+        className: `absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-500 ${(_a = Icon.propTypes) == null ? void 0 : _a.className}`
+      }),
+      /* @__PURE__ */ jsx12("input", {
+        type: "text",
+        className: "rounded-full border border-transparent bg-gray-100 py-2 pl-12 pr-4 outline-none focus:border-blue-300",
+        placeholder
+      })
+    ]
+  });
+};
 export {
   Avatar,
   Button,
+  InfoSidebar,
+  InlineFollow,
   Logo,
   NavItem,
   NavSidebar,
   Post,
+  RoundedBlock,
+  RoundedInput,
+  TagInfo,
   TweetPost
 };

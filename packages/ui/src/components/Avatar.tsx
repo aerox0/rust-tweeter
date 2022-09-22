@@ -1,7 +1,9 @@
-interface AvatarProps {}
+interface AvatarProps {
+	size?: string
+}
 
-const Avatar: React.FC<AvatarProps> = ({}) => {
-	return <div className="h-12 w-12 rounded-full bg-black"></div>
+const Avatar: React.FC<AvatarProps> = ({ size = '3rem' }) => {
+	return <div style={{ height: size, width: size }} className={`rounded-full bg-black`}></div>
 }
 
 export { Avatar }
