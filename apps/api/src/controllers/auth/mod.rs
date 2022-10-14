@@ -1,7 +1,7 @@
 use crate::{
     modules::{
         auth::{jwt_service::JwtService, AuthInput, AuthOutput, Claims},
-        user::{UserInput, UserModel},
+        user::{User, UserInput},
     },
     schema::users,
     utils::{database::Database, random},
@@ -12,10 +12,10 @@ use diesel::{ExpressionMethods, QueryDsl, RunQueryDsl};
 pub struct AuthController;
 
 impl AuthController {
-    pub async fn me(user_id: i32) -> Result<UserModel, anyhow::Error> {
+    pub async fn me(user_id: i32) -> Result<User, anyhow::Error> {
         let mut conn = Database::new().get_conn();
 
-        let result = users::table.find(user_id).first::<UserModel>(&mut conn)?;
+        let result = users::table.find(user_id).first::<User>(&mut conn)?;
 
         Ok(result)
     }
@@ -23,10 +23,10 @@ impl AuthController {
     pub async fn refresh_token(refresh_token: String) -> Result<AuthOutput, anyhow::Error> {
         let mut conn = Database::new().get_conn();
 
-        let claims =
-            JwtService::validate(refresh_token, "REFRESH").ok_or(anyhow!("Unauthorized"))?;
+        let claims = JwtService::validate(refresh_token, "REFRESH")
+            .ok_or_else(|| anyhow!("Unauthorized"))?;
 
-        let user: UserModel = users::table
+        let user: User = users::table
             .find(claims.sub.parse::<i32>()?)
             .first(&mut conn)?;
 
@@ -37,7 +37,7 @@ impl AuthController {
 
         let response = AuthOutput {
             access_token: JwtService::encode(claims.clone(), "ACCESS", 60)?,
-            refresh_token: JwtService::encode(claims.clone(), "REFRESH", 60 * 60 * 24 * 7)?,
+            refresh_token: JwtService::encode(claims, "REFRESH", 60 * 60 * 24 * 7)?,
         };
 
         Ok(response)
@@ -48,7 +48,7 @@ impl AuthController {
 
         let user = users::table
             .filter(users::username.eq(input.username))
-            .first::<UserModel>(&mut conn)?;
+            .first::<User>(&mut conn)?;
 
         let _ = argon2::verify_encoded(&user.password, input.password.as_bytes())?;
 
@@ -59,13 +59,13 @@ impl AuthController {
 
         let response = AuthOutput {
             access_token: JwtService::encode(claims.clone(), "ACCESS", 60)?,
-            refresh_token: JwtService::encode(claims.clone(), "REFRESH", 60 * 60 * 24 * 7)?,
+            refresh_token: JwtService::encode(claims, "REFRESH", 60 * 60 * 24 * 7)?,
         };
 
         Ok(response)
     }
 
-    pub async fn register(mut input: UserInput) -> Result<UserModel, anyhow::Error> {
+    pub async fn register(mut input: UserInput) -> Result<User, anyhow::Error> {
         let mut conn = Database::new().get_conn();
 
         input.password = argon2::hash_encoded(
@@ -76,7 +76,7 @@ impl AuthController {
 
         let result = diesel::insert_into(users::table)
             .values(input)
-            .get_result::<UserModel>(&mut conn)?;
+            .get_result::<User>(&mut conn)?;
 
         Ok(result)
     }
