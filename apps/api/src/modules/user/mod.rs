@@ -11,6 +11,7 @@ pub struct UserModel {
     pub id: i32,
     pub image_url: Option<String>,
     pub name: String,
+    pub username: String,
     pub email: Option<String>,
     #[graphql(skip)]
     #[serde(skip)]
@@ -27,6 +28,7 @@ pub struct UserModel {
 pub struct UserInput {
     pub image_url: Option<String>,
     pub name: String,
+    pub username: String,
     pub password: String,
     pub verified: Option<NaiveDateTime>,
 }

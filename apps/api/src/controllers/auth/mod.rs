@@ -47,7 +47,7 @@ impl AuthController {
         let mut conn = Database::new().get_conn();
 
         let user = users::table
-            .filter(users::name.eq(input.name))
+            .filter(users::username.eq(input.username))
             .first::<UserModel>(&mut conn)?;
 
         let _ = argon2::verify_encoded(&user.password, input.password.as_bytes())?;

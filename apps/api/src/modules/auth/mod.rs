@@ -11,7 +11,7 @@ pub mod jwt_service;
 
 #[derive(Deserialize)]
 pub struct AuthInput {
-    pub name: String,
+    pub username: String,
     pub password: String,
 }
 
