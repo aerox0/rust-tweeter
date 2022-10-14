@@ -32,6 +32,12 @@ impl Database {
     }
 }
 
+impl Default for Database {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[async_trait]
 impl<B> FromRequest<B> for Database
 where

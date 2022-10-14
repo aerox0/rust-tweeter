@@ -25,7 +25,7 @@ impl IntoResponse for AppError {
             ),
             AppError::ValidationError => (
                 StatusCode::UNPROCESSABLE_ENTITY,
-                format!("Validation errors"),
+                "Validation errors".to_string(),
             ),
         };
 

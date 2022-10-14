@@ -11,7 +11,7 @@ pub mod jwt_service;
 
 #[derive(Deserialize)]
 pub struct AuthInput {
-    pub name: String,
+    pub username: String,
     pub password: String,
 }
 
@@ -22,7 +22,7 @@ pub struct AuthOutput {
 }
 
 #[derive(Deserialize)]
-pub struct TokenModel {
+pub struct Token {
     pub token: String,
 }
 
@@ -47,9 +47,7 @@ where
             .to_str()
             .unwrap();
 
-        let claims = JwtService::validate(access_token.to_string(), "ACCESS")
-            .ok_or((StatusCode::UNAUTHORIZED, "Wrong credentials".to_string()));
-
-        claims
+        JwtService::validate(access_token.to_string(), "ACCESS")
+            .ok_or((StatusCode::UNAUTHORIZED, "Wrong credentials".to_string()))
     }
 }
