@@ -1,12 +1,12 @@
 import { PhotoIcon } from '@heroicons/react/24/outline'
-import { Avatar } from '../components/Avatar'
+import { Avatar } from './Avatar'
 import { Button } from './forms/Button'
 
-interface TweetPostProps {
+interface CreateTweetProps {
 	className?: string
 }
 
-const TweetPost: React.FC<TweetPostProps> = ({ className = '' }) => {
+const CreateTweet: React.FC<CreateTweetProps> = ({ className = '' }) => {
 	return (
 		<div className={className}>
 			<div className="flex flex-row gap-5">
@@ -27,4 +27,4 @@ const TweetPost: React.FC<TweetPostProps> = ({ className = '' }) => {
 	)
 }
 
-export { TweetPost }
+export { CreateTweet }

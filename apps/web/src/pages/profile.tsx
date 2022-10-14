@@ -3,6 +3,7 @@ import { CalendarDaysIcon } from '@heroicons/react/24/outline'
 import type { NextPage } from 'next'
 import { Avatar } from '../components/components/Avatar'
 import { Button } from '../components/components/forms/Button'
+import { TweetCard } from '../components/components/Tweet'
 import { FollowWidget } from '../components/layouts/FollowWidget'
 import { Layout } from '../components/layouts/Index'
 import { InfoSidebar } from '../components/layouts/InfoSidebar'
@@ -17,11 +18,19 @@ const ProfilePage: NextPage<ProfileProps> = ({}) => {
 	const tabs = [
 		{
 			name: 'Tweets',
-			content: <>Tweets</>,
+			content: (
+				<TweetCard name="Aerox" username="aerox0" hours_ago="5h">
+					Asd
+				</TweetCard>
+			),
 		},
 		{
 			name: 'Likes',
-			content: <>Likes</>,
+			content: (
+				<TweetCard name="Aerox" username="aerox0" hours_ago="5h">
+					Asd
+				</TweetCard>
+			),
 		},
 	]
 

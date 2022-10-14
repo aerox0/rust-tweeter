@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
-import { Post } from '../components/components/Post'
-import { TweetPost } from '../components/components/TweetPost'
+import { CreateTweet } from '../components/components/CreateTweet'
+import { TweetCard } from '../components/components/Tweet'
 import { FollowWidget } from '../components/layouts/FollowWidget'
 import { Layout } from '../components/layouts/Index'
 import { InfoSidebar } from '../components/layouts/InfoSidebar'
@@ -19,23 +19,23 @@ const Home: NextPage<HomeProps> = () => {
 				<div className="grow-[8] basis-0 py-4 md:grow-[5]">
 					<div className="mb-3 px-5 text-lg font-bold">Home</div>
 
-					<TweetPost className="px-5 pb-5" />
+					<CreateTweet className="px-5 pb-5" />
 
 					<div>
 						<div className="border-t-[1px] border-blue-50 p-5">
-							<Post name="Simple Name" username="username" hours_ago="2h">
+							<TweetCard name="Simple Name" username="username" hours_ago="2h">
 								Some basic text that have no sense.
-							</Post>
+							</TweetCard>
 						</div>
 						<div className="mt-2 border-t-[1px] border-blue-50 p-5">
-							<Post name="Simple Name" username="username" hours_ago="2h">
+							<TweetCard name="Simple Name" username="username" hours_ago="2h">
 								Some basic text that have no sense.
-							</Post>
+							</TweetCard>
 						</div>
 						<div className="mt-2 border-t-[1px] border-blue-50 p-5">
-							<Post name="Simple Name" username="username" hours_ago="2h">
+							<TweetCard name="Simple Name" username="username" hours_ago="2h">
 								Some basic text that have no sense.
-							</Post>
+							</TweetCard>
 						</div>
 					</div>
 				</div>
