@@ -14,9 +14,7 @@ pub struct AuthController;
 impl AuthController {
     pub async fn me(user_id: i32) -> Result<User, anyhow::Error> {
         let mut conn = Database::new().get_conn();
-
         let result = users::table.find(user_id).first::<User>(&mut conn)?;
-
         Ok(result)
     }
 
