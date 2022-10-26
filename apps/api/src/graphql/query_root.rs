@@ -1,10 +1,6 @@
-use async_graphql::Object;
+use async_graphql::MergedObject;
 
-pub struct QueryRoot;
+use super::queries::{hello::HelloQuery, tweet::TweetQuery, user::UserQuery};
 
-#[Object]
-impl QueryRoot {
-    async fn hello(&self) -> String {
-        "Ok".to_string()
-    }
-}
+#[derive(MergedObject, Default)]
+pub struct QueryRoot(HelloQuery, TweetQuery, UserQuery);

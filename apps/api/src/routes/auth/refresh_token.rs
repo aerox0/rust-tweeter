@@ -5,6 +5,6 @@ use crate::{controllers::auth::AuthController, errors::AppError, modules::auth::
 pub async fn refresh_token_handler(
     Json(input): Json<Token>,
 ) -> Result<impl IntoResponse, AppError> {
-    let result = AuthController::refresh_token(input.token).await?;
+    let result = AuthController::new().refresh_token(input.token).await?;
     Ok(Json(result))
 }

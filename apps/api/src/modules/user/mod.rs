@@ -1,3 +1,5 @@
+pub mod service;
+
 use async_graphql::{InputObject, SimpleObject};
 use chrono::NaiveDateTime;
 use diesel::{Identifiable, Insertable, Queryable};

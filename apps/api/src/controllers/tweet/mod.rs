@@ -13,9 +13,7 @@ impl TweetController {
             conn: Database::new().get_conn(),
         }
     }
-}
 
-impl TweetController {
     pub fn list(self) -> Result<Vec<Tweet>, anyhow::Error> {
         Ok(TweetService::list(self.conn)?)
     }

@@ -1,3 +1,5 @@
+pub mod mutations;
+pub mod queries;
 pub mod query_root;
 
 use self::query_root::QueryRoot;
