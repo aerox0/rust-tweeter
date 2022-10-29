@@ -8,17 +8,13 @@ import InfoSidebar from '../components/layouts/InfoSidebar'
 import NavSidebar from '../components/layouts/NavSidebar'
 import SearchWidget from '../components/layouts/SearchWidget'
 import TrendsForYouWidget from '../components/layouts/TrendsForYouWidget'
-import { TweetListQuery } from '../gql/graphql'
-import { apiRequest } from '../libs/api/common'
+import { apiRequestQuery } from '../libs/api/common'
 import { tweetQuery } from '../libs/api/tweetApi'
 
 interface HomeProps {}
 
 const Home: NextPage<HomeProps> = () => {
-	const { data } = useQuery<TweetListQuery>(['tweetList'], async () => {
-		const { tweetList } = await apiRequest(tweetQuery)
-		return { tweetList }
-	})
+	const { data } = useQuery(['tweetList'], () => apiRequestQuery(tweetQuery))
 
 	return (
 		<Layout title="Home">
