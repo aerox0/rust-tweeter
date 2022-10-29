@@ -10,4 +10,4 @@ const NavItem: React.FC<NavItemProps> = ({ children }) => {
 	)
 }
 
-export { NavItem }
+export default NavItem

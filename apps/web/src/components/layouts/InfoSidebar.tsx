@@ -16,4 +16,4 @@ const InfoSidebar: React.FC<InfoSidebarProps> = ({ children }) => {
 	)
 }
 
-export { InfoSidebar }
+export default InfoSidebar

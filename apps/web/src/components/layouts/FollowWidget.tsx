@@ -1,5 +1,5 @@
-import { InlineFollow } from '../components/InlineFollow'
-import { RoundedBlock } from '../components/RoundedBlock'
+import InlineFollow from '../components/InlineFollow'
+import RoundedBlock from '../components/RoundedBlock'
 
 interface FollowWidgetProps {}
 
@@ -13,4 +13,4 @@ const FollowWidget: React.FC<FollowWidgetProps> = ({}) => {
 	)
 }
 
-export { FollowWidget }
+export default FollowWidget

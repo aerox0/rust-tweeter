@@ -8,4 +8,4 @@ const Logo: React.FC<LogoProps> = ({}) => {
 	)
 }
 
-export { Logo }
+export default Logo

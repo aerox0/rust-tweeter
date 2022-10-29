@@ -1,6 +1,6 @@
 import { PhotoIcon } from '@heroicons/react/24/outline'
-import { Avatar } from './Avatar'
-import { Button } from './forms/Button'
+import Avatar from './Avatar'
+import Button from './forms/Button'
 
 interface CreateTweetProps {
 	className?: string
@@ -27,4 +27,4 @@ const CreateTweet: React.FC<CreateTweetProps> = ({ className = '' }) => {
 	)
 }
 
-export { CreateTweet }
+export default CreateTweet

@@ -1,5 +1,5 @@
 import { ChatBubbleLeftIcon, HeartIcon } from '@heroicons/react/24/outline'
-import { Avatar } from './Avatar'
+import Avatar from './Avatar'
 import IconText from './IconText'
 
 interface TweetCardProps {
@@ -31,4 +31,4 @@ const TweetCard: React.FC<TweetCardProps> = ({ name, username, hours_ago, childr
 	)
 }
 
-export { TweetCard }
+export default TweetCard

@@ -1,5 +1,4 @@
 import { Tab } from '@headlessui/react'
-import { CalendarDaysIcon } from '@heroicons/react/24/outline'
 import type { NextPage } from 'next'
 import { Avatar } from '../components/components/Avatar'
 import { Button } from '../components/components/forms/Button'

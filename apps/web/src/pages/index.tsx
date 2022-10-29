@@ -1,16 +1,25 @@
+import { useQuery } from '@tanstack/react-query'
 import type { NextPage } from 'next'
-import { CreateTweet } from '../components/components/CreateTweet'
-import { TweetCard } from '../components/components/Tweet'
-import { FollowWidget } from '../components/layouts/FollowWidget'
-import { Layout } from '../components/layouts/Index'
-import { InfoSidebar } from '../components/layouts/InfoSidebar'
-import { NavSidebar } from '../components/layouts/NavSidebar'
-import { SearchWidget } from '../components/layouts/SearchWidget'
-import { TrendsForYouWidget } from '../components/layouts/TrendsForYouWidget'
+import CreateTweet from '../components/components/CreateTweet'
+import TweetCard from '../components/components/Tweet'
+import FollowWidget from '../components/layouts/FollowWidget'
+import Layout from '../components/layouts/Index'
+import InfoSidebar from '../components/layouts/InfoSidebar'
+import NavSidebar from '../components/layouts/NavSidebar'
+import SearchWidget from '../components/layouts/SearchWidget'
+import TrendsForYouWidget from '../components/layouts/TrendsForYouWidget'
+import { TweetListQuery } from '../gql/graphql'
+import { apiRequest } from '../libs/api/common'
+import { tweetQuery } from '../libs/api/tweetApi'
 
 interface HomeProps {}
 
 const Home: NextPage<HomeProps> = () => {
+	const { data } = useQuery<TweetListQuery>(['tweetList'], async () => {
+		const { tweetList } = await apiRequest(tweetQuery)
+		return { tweetList }
+	})
+
 	return (
 		<Layout title="Home">
 			<div className="flex flex-row justify-between">
@@ -22,21 +31,13 @@ const Home: NextPage<HomeProps> = () => {
 					<CreateTweet className="px-5 pb-5" />
 
 					<div>
-						<div className="border-t-[1px] border-blue-50 p-5">
-							<TweetCard name="Simple Name" username="username" hours_ago="2h">
-								Some basic text that have no sense.
-							</TweetCard>
-						</div>
-						<div className="mt-2 border-t-[1px] border-blue-50 p-5">
-							<TweetCard name="Simple Name" username="username" hours_ago="2h">
-								Some basic text that have no sense.
-							</TweetCard>
-						</div>
-						<div className="mt-2 border-t-[1px] border-blue-50 p-5">
-							<TweetCard name="Simple Name" username="username" hours_ago="2h">
-								Some basic text that have no sense.
-							</TweetCard>
-						</div>
+						{data?.tweetList.map((t) => (
+							<div key={t.id} className="border-t-[1px] border-blue-50 p-5">
+								<TweetCard name="Simple Name" username="username" hours_ago="2h">
+									{t.content}
+								</TweetCard>
+							</div>
+						))}
 					</div>
 				</div>
 

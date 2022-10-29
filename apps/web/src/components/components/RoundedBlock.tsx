@@ -13,4 +13,4 @@ const RoundedBlock: React.FC<RoundedBlockProps> = ({ title, children }) => {
 	)
 }
 
-export { RoundedBlock }
+export default RoundedBlock

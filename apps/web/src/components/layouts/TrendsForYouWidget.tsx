@@ -1,5 +1,5 @@
-import { RoundedBlock } from '../components/RoundedBlock'
-import { TagInfo } from '../components/TagInfo'
+import RoundedBlock from '../components/RoundedBlock'
+import TagInfo from '../components/TagInfo'
 
 interface TrendsForYouWidgetProps {}
 
@@ -14,4 +14,4 @@ const TrendsForYouWidget: React.FC<TrendsForYouWidgetProps> = ({}) => {
 	)
 }
 
-export { TrendsForYouWidget }
+export default TrendsForYouWidget

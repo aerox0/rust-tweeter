@@ -12,4 +12,4 @@ const TagInfo: React.FC<TagInfoProps> = ({ name, count }) => {
 	)
 }
 
-export { TagInfo }
+export default TagInfo

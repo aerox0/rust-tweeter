@@ -27,4 +27,4 @@ const RoundedInput: React.FC<RoundedInputProps> = ({
 	)
 }
 
-export { RoundedInput }
+export default RoundedInput

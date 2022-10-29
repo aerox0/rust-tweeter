@@ -1,5 +1,5 @@
-import { Avatar } from './Avatar'
-import { Button } from './forms/Button'
+import Avatar from './Avatar'
+import Button from './forms/Button'
 
 interface InlineFollowProps {
 	name: string
@@ -19,4 +19,4 @@ const InlineFollow: React.FC<InlineFollowProps> = ({ name, username }) => {
 	)
 }
 
-export { InlineFollow }
+export default InlineFollow

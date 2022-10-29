@@ -15,4 +15,4 @@ const Button: React.FC<ButtonProps> = ({ children, className = '', type = 'solid
 	return <button className={`${default_style} ${type_style} ${className}`}>{children}</button>
 }
 
-export { Button }
+export default Button
