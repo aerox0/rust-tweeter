@@ -1,11 +1,12 @@
+pub mod mutation_root;
 pub mod mutations;
 pub mod queries;
 pub mod query_root;
 
-use self::query_root::QueryRoot;
+use self::{mutation_root::MutationRoot, query_root::QueryRoot};
 use async_graphql::{
     http::{playground_source, GraphQLPlaygroundConfig},
-    EmptyMutation, EmptySubscription, Schema,
+    EmptySubscription, Schema,
 };
 use async_graphql_axum::{GraphQLRequest, GraphQLResponse};
 use axum::{
@@ -13,7 +14,7 @@ use axum::{
     response::{Html, IntoResponse},
 };
 
-type ApiSchema = Schema<QueryRoot, EmptyMutation, EmptySubscription>;
+type ApiSchema = Schema<QueryRoot, MutationRoot, EmptySubscription>;
 
 pub async fn graphql_playground() -> impl IntoResponse {
     Html(playground_source(GraphQLPlaygroundConfig::new("/graphql")))
