@@ -15,7 +15,7 @@ pub struct Tweet {
     pub id: i32,
     pub user_id: i32,
     pub content: String,
-    pub schedlue: Option<NaiveDateTime>,
+    pub schedule: Option<NaiveDateTime>,
     pub created_at: NaiveDateTime,
     pub updated_at: NaiveDateTime,
 }
