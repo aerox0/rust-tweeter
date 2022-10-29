@@ -6,6 +6,7 @@ export const tweetQuery = graphql(`
 			id
 			userId
 			content
+			schedule
 			createdAt
 			updatedAt
 		}

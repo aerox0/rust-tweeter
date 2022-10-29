@@ -34,7 +34,7 @@ export type Tweet = {
   content: Scalars['String'];
   createdAt: Scalars['NaiveDateTime'];
   id: Scalars['Int'];
-  schedlue?: Maybe<Scalars['NaiveDateTime']>;
+  schedule?: Maybe<Scalars['NaiveDateTime']>;
   updatedAt: Scalars['NaiveDateTime'];
   userId: Scalars['Int'];
 };
@@ -53,7 +53,7 @@ export type User = {
 export type TweetListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TweetListQuery = { __typename?: 'QueryRoot', tweetList: Array<{ __typename?: 'Tweet', id: number, userId: number, content: string, createdAt: any, updatedAt: any }> };
+export type TweetListQuery = { __typename?: 'QueryRoot', tweetList: Array<{ __typename?: 'Tweet', id: number, userId: number, content: string, schedule?: any | null, createdAt: any, updatedAt: any }> };
 
 
-export const TweetListDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"TweetList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tweetList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<TweetListQuery, TweetListQueryVariables>;
+export const TweetListDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"TweetList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tweetList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"schedule"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}}]}}]}}]} as unknown as DocumentNode<TweetListQuery, TweetListQueryVariables>;
