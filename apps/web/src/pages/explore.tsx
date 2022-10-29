@@ -1,14 +1,14 @@
 import type { NextPage } from 'next'
-import { FollowWidget } from '../components/layouts/FollowWidget'
-import { Layout } from '../components/layouts/Index'
-import { InfoSidebar } from '../components/layouts/InfoSidebar'
-import { NavSidebar } from '../components/layouts/NavSidebar'
-import { SearchWidget } from '../components/layouts/SearchWidget'
-import { TrendsForYouWidget } from '../components/layouts/TrendsForYouWidget'
+import FollowWidget from '../components/layouts/FollowWidget'
+import Layout from '../components/layouts/Index'
+import InfoSidebar from '../components/layouts/InfoSidebar'
+import NavSidebar from '../components/layouts/NavSidebar'
+import SearchWidget from '../components/layouts/SearchWidget'
+import TrendsForYouWidget from '../components/layouts/TrendsForYouWidget'
 
-interface ExploreProps {}
+interface PageProps {}
 
-const ExplorePage: NextPage<ExploreProps> = ({}) => {
+const ExplorePage: NextPage<PageProps> = ({}) => {
 	return (
 		<Layout title="Explore">
 			<div className="flex flex-row justify-between">

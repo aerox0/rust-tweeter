@@ -11,9 +11,9 @@ import TrendsForYouWidget from '../components/layouts/TrendsForYouWidget'
 import { apiRequestQuery } from '../libs/api/common'
 import { tweetQuery } from '../libs/api/tweetApi'
 
-interface HomeProps {}
+interface PageProps {}
 
-const Home: NextPage<HomeProps> = () => {
+const Home: NextPage<PageProps> = () => {
 	const { data } = useQuery(['tweetList'], () => apiRequestQuery(tweetQuery))
 
 	return (

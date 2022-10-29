@@ -1,19 +1,19 @@
 import { Tab } from '@headlessui/react'
 import type { NextPage } from 'next'
-import { Avatar } from '../components/components/Avatar'
-import { Button } from '../components/components/forms/Button'
-import { TweetCard } from '../components/components/Tweet'
-import { FollowWidget } from '../components/layouts/FollowWidget'
-import { Layout } from '../components/layouts/Index'
-import { InfoSidebar } from '../components/layouts/InfoSidebar'
-import { NavSidebar } from '../components/layouts/NavSidebar'
+import Avatar from '../components/components/Avatar'
+import Button from '../components/components/forms/Button'
+import TweetCard from '../components/components/Tweet'
+import FollowWidget from '../components/layouts/FollowWidget'
+import Layout from '../components/layouts/Index'
+import InfoSidebar from '../components/layouts/InfoSidebar'
+import NavSidebar from '../components/layouts/NavSidebar'
 import ProfileHero from '../components/layouts/ProfileHero'
-import { TrendsForYouWidget } from '../components/layouts/TrendsForYouWidget'
+import TrendsForYouWidget from '../components/layouts/TrendsForYouWidget'
 import { cls } from '../utils/helpers'
 
-interface ProfileProps {}
+interface PageProps {}
 
-const ProfilePage: NextPage<ProfileProps> = ({}) => {
+const ProfilePage: NextPage<PageProps> = ({}) => {
 	const tabs = [
 		{
 			name: 'Tweets',
