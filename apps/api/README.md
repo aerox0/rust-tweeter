@@ -16,7 +16,7 @@ class User {
  +string name
  +string username
  +string email
- -string passwrod
+ -string password
  -timestamp verified
 }
 
@@ -40,10 +40,3 @@ class CommentLike {
  +object_id comment_id
 }
 ```
-
-
-<!--
-@startuml firstDiagram
-Bar <-- Foo  
-@enduml
--->
