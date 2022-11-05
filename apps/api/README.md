@@ -40,3 +40,13 @@ class CommentLike {
  +object_id comment_id
 }
 ```
+
+
+```plantUML
+@startuml firstDiagram
+
+Alice -> Bob: Hello
+Bob -> Alice: Hi!
+  
+@enduml
+```
