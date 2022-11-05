@@ -42,11 +42,8 @@ class CommentLike {
 ```
 
 
-```
+<!--
 @startuml firstDiagram
-
-Alice -> Bob: Hello
-Bob -> Alice: Hi!
-  
+Bar <-- Foo  
 @enduml
-```
+-->
