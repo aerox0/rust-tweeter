@@ -42,7 +42,7 @@ class CommentLike {
 ```
 
 
-```plantUML
+```
 @startuml firstDiagram
 
 Alice -> Bob: Hello
